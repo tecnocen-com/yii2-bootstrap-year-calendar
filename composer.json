@@ -1,0 +1,38 @@
+{
+    "name": "tecnocen/yii2-bootstrap-year-calendar",
+    "description": "Yii2 widget for bootstrap-year-calendar plugin",
+    "keywords": [
+        "yii",
+        "yii2",
+        "bootstrap",
+        "calendar",
+        "widget",
+        "bootstrap-year-calendar"
+    ],
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "homepage": "https://github.com/tecnocen-com/yii2-bootstrap-year-calendar",
+    "authors": [
+        {
+            "name": "Angel (Faryshta) Guevara",
+            "email": "angeldelcaos@gmail.com",
+            "homepage": "https://github.com/Faryshta",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "bower-asset/bootstrap-year-calendar": "~1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "tecnocen\\yearcalendar\\": ""
+        }
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
