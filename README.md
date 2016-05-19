@@ -1,6 +1,6 @@
 # Tecnocen-com Yii2 Bootstrap Year Calendar
 
-TODO: poser badges
+[![Latest Stable Version](https://poser.pugx.org/tecnocen/yii2-bootstrap-year-calendar/v/stable)](https://packagist.org/packages/tecnocen/yii2-bootstrap-year-calendar) [![Total Downloads](https://poser.pugx.org/tecnocen/yii2-bootstrap-year-calendar/downloads)](https://packagist.org/packages/tecnocen/yii2-bootstrap-year-calendar) [![Latest Unstable Version](https://poser.pugx.org/tecnocen/yii2-bootstrap-year-calendar/v/unstable)](https://packagist.org/packages/tecnocen/yii2-bootstrap-year-calendar) [![License](https://poser.pugx.org/tecnocen/yii2-bootstrap-year-calendar/license)](https://packagist.org/packages/tecnocen/yii2-bootstrap-year-calendar)
 
 Widget that implements the [bootstrap-year-calendar](http://www.bootstrap-year-calendar.com/) plugin for Yii2
 
