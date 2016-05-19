@@ -23,5 +23,5 @@ class BootstrapYearCalendar extends AssetBundle
     /**
      * @inheritdoc
      */
-    public $depends = ['yii\\bootstrap\\BootstrapAsset'];
+    public $depends = ['yii\\bootstrap\\BootstrapPluginAsset'];
 }
