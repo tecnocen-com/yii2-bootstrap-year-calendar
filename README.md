@@ -33,6 +33,7 @@ This is the basic widget which encapsulates the plugin into a `yii\bootstrap\Wid
 use tecnocen\yearcalendar\BootstrapYearCalendar;
 
 echo BootstrapYearCalendar::widget([
+    // 'language' => 'es',
     'options' => [
         // HTML attributes for the container.
         // the `tag` option is specially handled as the HTML tag name
@@ -90,6 +91,7 @@ use tecnocen\yearcalendar\widgets\DataSourceCalendar;
 use yii\data\ActiveDataProvider;
 
 echo DataSourceCalendar::widget([
+    // 'language' => 'es',
     'dataProvider' => new ActiveDataProvider([
         'query' => Conference::find()->andWhere(['active' => 1])
     ]),
@@ -107,6 +109,16 @@ echo DataSourceCalendar::widget([
         // see http://bootstrap-year-calendar.com/#Documentation/Events
     ]
 ])
+```
+
+### Language
+
+The bootstrap-year-calendar plugin provides the [following languages] (<https://github.com/Paul-DS/bootstrap-year-calendar/tree/master/js/languages>), both plugins support automatic translations the the `$language` attribute which automatically will load the required file and use it on the widget.
+
+```php
+echo BootstrapYearCalendar::widget([
+    'language' => 'es',
+]);
 ```
 
 ## Documentation
