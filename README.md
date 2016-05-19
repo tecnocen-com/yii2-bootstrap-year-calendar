@@ -24,7 +24,7 @@ to the `require` section of your `composer.json` file.
 
 ## Usage
 
-### BootstraYearCalendar
+### BootstrapYearCalendar
 
 This is the basic widget which encapsulates the plugin into a `yii\bootstrap\Widget` implementation.
 
