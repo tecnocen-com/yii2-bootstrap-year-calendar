@@ -60,7 +60,7 @@ class ActiveCalendar extends Calendar
         foreach ($models as $index => $model) {
             $key = $keys[$index];
 
-            $rows[$key] = $this->prepareItem($model, $key, $index);
+            $rows[] = $this->prepareItem($model, $key, $index);
         }
 
         $this->clientOptions['dataSource'] = $rows;
