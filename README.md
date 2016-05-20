@@ -1,4 +1,4 @@
-# Tecnocen-com Yii2 Bootstrap Year Calendar
+# Tecnocen Yii2 Bootstrap Year Calendar
 
 [![Latest Stable Version](https://poser.pugx.org/tecnocen/yii2-bootstrap-year-calendar/v/stable)](https://packagist.org/packages/tecnocen/yii2-bootstrap-year-calendar) [![Total Downloads](https://poser.pugx.org/tecnocen/yii2-bootstrap-year-calendar/downloads)](https://packagist.org/packages/tecnocen/yii2-bootstrap-year-calendar) [![Latest Unstable Version](https://poser.pugx.org/tecnocen/yii2-bootstrap-year-calendar/v/unstable)](https://packagist.org/packages/tecnocen/yii2-bootstrap-year-calendar) [![License](https://poser.pugx.org/tecnocen/yii2-bootstrap-year-calendar/license)](https://packagist.org/packages/tecnocen/yii2-bootstrap-year-calendar)
 
@@ -113,13 +113,26 @@ echo ActiveCalendar::widget([
 
 ### Language
 
-The bootstrap-year-calendar plugin provides the [following languages] (<https://github.com/Paul-DS/bootstrap-year-calendar/tree/master/js/languages>), both plugins support automatic translations the the `$language` attribute which automatically will load the required file and use it on the widget.
+The bootstrap-year-calendar plugin provides the [following languages]
+(https://github.com/Paul-DS/bootstrap-year-calendar/tree/master/js/languages),
+`Calendar` and `ActiveCalendar` support automatic translations using the
+`$language` class property which automatically will load the required js file
+and customize the plugin call.
 
 ```php
 echo Calendar::widget([
+    'options' => ['id' => 'es-calendar'],
     'language' => 'es',
 ]);
 ```
+
+Will add the JS File `bootstrap-year-calendar.es.js` to the view and run
+
+```js
+jQuery(\'#es-calendar\').calendar({"language":"es"});
+```
+
+On the browser.
 
 ## Documentation
 
