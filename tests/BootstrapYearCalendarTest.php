@@ -3,6 +3,7 @@ namespace tecnocen\yearcalendar\tests;
 
 use tecnocen\yearcalendar\widgets\BootstrapYearCalendar as Widget;
 use tecnocen\yearcalendar\widgets\DataSourceCalendar as DataWidget;
+use tecnocen\yearcalendar\assets\BootstrapYearCalendarLanguage as LangAsset;
 use Yii;
 use yii\data\ArrayDataProvider;
 use yii\web\View;
@@ -12,19 +13,39 @@ use yii\web\View;
  */
 class BootstrapYearCalendarTest extends TestCase
 {
-    public function testWidget()
+
+    public function testLanguage()
     {
+        $view = Yii::$app->view;
         $expected = <<<'HTML'
 <div id="w0"></div>
 HTML;
+
+        $this->assertEquals($expected, Widget::widget(['language' => 'es']));
+
+        $this->assertEquals(
+            'jQuery(\'#w0\').calendar({"language":"es"});',
+            end($view->js[View::POS_READY])
+        );
+
+        $this->assertTrue(isset($view->assetBundles[LangAsset::className()]));
+        $languageAsset  = $view->assetBundles[LangAsset::className()];
+        $this->assertEquals('es', $languageAsset->language);
+    }
+
+    public function testWidget()
+    {
+        $expected = <<<'HTML'
+<div id="w1"></div>
+HTML;
         $this->assertEquals($expected, Widget::widget());
         $this->assertEquals(
-            'jQuery(\'#w0\').calendar();',
-            array_values(Yii::$app->view->js[View::POS_READY])[0]
+            'jQuery(\'#w1\').calendar({"language":"en"});',
+            end(Yii::$app->view->js[View::POS_READY])
         );
 
         $expected = <<<'HTML'
-<span id="w1" class="row"></span>
+<span id="w2" class="row"></span>
 HTML;
         $this->assertEquals($expected, Widget::widget([
             'options' => [
@@ -37,15 +58,15 @@ HTML;
         ]));
 
         $this->assertEquals(
-            'jQuery(\'#w1\').calendar({"startYear":2012});',
-            array_values(Yii::$app->view->js[View::POS_READY])[1]
+            'jQuery(\'#w2\').calendar({"startYear":2012,"language":"en"});',
+            end(Yii::$app->view->js[View::POS_READY])
         );
     }
 
     public function testDataWidget()
     {
         $expected = <<<'HTML'
-<div id="w2"></div>
+<div id="w3"></div>
 HTML;
 
         $this->assertEquals($expected, DataWidget::widget([
@@ -65,7 +86,7 @@ HTML;
             ]),
         ]));
         $expected = <<<'JS'
-jQuery('#w2').calendar({"dataSource":[
+jQuery('#w3').calendar({"dataSource":[
     {
         "name":"Conference",
         "startDate":new Date('2016-01-01'),
@@ -76,12 +97,12 @@ jQuery('#w2').calendar({"dataSource":[
         "startDate":new Date('2016-03-01'),
         "endDate":new Date('2016-03-03')
     }
-]});
+],"language":"en"});
 JS;
         $expected = preg_replace('/\n\s*/', '', $expected);
         $this->assertEquals(
             $expected,
-            array_values(Yii::$app->view->js[View::POS_READY])[0]
+            end(Yii::$app->view->js[View::POS_READY])
         );
     }
 }
