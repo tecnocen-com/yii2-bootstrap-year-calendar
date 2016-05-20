@@ -29,15 +29,14 @@ class BootstrapYearCalendarLanguage extends AssetBundle
      * @inheritdoc
      */
 
-    public $depends = [
-        'tecnocen\yearcalendar\assets\BootstrapYearCalendar',
-    ];
+    public $depends = ['tecnocen\yearcalendar\assets\BootstrapYearCalendar'];
+
     /**
      * @inheritdoc
      */
     public function registerAssetFiles($view)
     {
-        if ($this->autoGenerate) {
+        if ($this->autoGenerate && $this->language != 'en') {
             $language = $this->language;
             if (!file_exists(Yii::getAlias(
                 $this->sourcePath . "/bootstrap-year-calendar.{$language}.js"
