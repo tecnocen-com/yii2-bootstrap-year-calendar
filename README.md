@@ -24,15 +24,15 @@ to the `require` section of your `composer.json` file.
 
 ## Usage
 
-### BootstrapYearCalendar
+### Calendar
 
 This is the basic widget which encapsulates the plugin into a `yii\bootstrap\Widget` implementation.
 
 ```php
 
-use tecnocen\yearcalendar\BootstrapYearCalendar;
+use tecnocen\yearcalendar\Calendar;
 
-echo BootstrapYearCalendar::widget([
+echo Calendar::widget([
     // 'language' => 'es',
     'options' => [
         // HTML attributes for the container.
@@ -49,20 +49,20 @@ echo BootstrapYearCalendar::widget([
 ]);
 ```
 
-### DataSourceCalendar
+### ActiveCalendar
 
 The data source calendar uses a [dataProvider](http://www.yiiframework.com/doc-2.0/yii-data-dataproviderinterface.html) to load the `dataSource` property passed to the calendar.
 
-The models returned by the dataProvider must implement the `tecnocen\yearcalendar\data\DataSourceItem` interface.
+The models returned by the dataProvider must implement the `tecnocen\yearcalendar\data\DataItem` interface.
 
 ```php
 namespace api\models;
 
-use tecnocen\yearcalendar\data\DataSourceItem;
+use tecnocen\yearcalendar\data\DataItem;
 use yii\db\ActiveRecord;
 use yii\web\JsExpression;
 
-class Conference extends ActiveRecord implements DataSourceItem
+class Conference extends ActiveRecord implements DataItem
 {
     public function getName()
     {
@@ -87,10 +87,10 @@ Once we have the model we can create the dataProvider.
 
 ```php
 use api\models\Conference;
-use tecnocen\yearcalendar\widgets\DataSourceCalendar;
+use tecnocen\yearcalendar\widgets\ActiveCalendar;
 use yii\data\ActiveDataProvider;
 
-echo DataSourceCalendar::widget([
+echo ActiveCalendar::widget([
     // 'language' => 'es',
     'dataProvider' => new ActiveDataProvider([
         'query' => Conference::find()->andWhere(['active' => 1])
@@ -116,7 +116,7 @@ echo DataSourceCalendar::widget([
 The bootstrap-year-calendar plugin provides the [following languages] (<https://github.com/Paul-DS/bootstrap-year-calendar/tree/master/js/languages>), both plugins support automatic translations the the `$language` attribute which automatically will load the required file and use it on the widget.
 
 ```php
-echo BootstrapYearCalendar::widget([
+echo Calendar::widget([
     'language' => 'es',
 ]);
 ```

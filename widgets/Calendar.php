@@ -2,7 +2,7 @@
 
 namespace tecnocen\yearcalendar\widgets;
 
-use tecnocen\yearcalendar\assets\BootstrapYearCalendarLanguage as LanguageAsset;
+use tecnocen\yearcalendar\assets\Language as LanguageAsset;
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
 /**
  * @author Angel (Faryshta) Guevara <aguevara@tecnocen.com>
  */
-class BootstrapYearCalendar extends \yii\bootstrap\Widget
+class Calendar extends \yii\bootstrap\Widget
 {
     /**
      * @var string the locale ID (e.g. 'fr', 'de', 'en-GB') for the language to * be used by the date picker. If this property is empty, then the current

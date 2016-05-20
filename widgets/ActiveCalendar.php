@@ -3,9 +3,9 @@
 namespace tecnocen\yearcalendar\widgets;
 
 use yii\data\DataProviderInterface;
-use tecnocen\yearcalendar\data\DataSourceItem;
+use tecnocen\yearcalendar\data\DataItem;
 
-class DataSourceCalendar extends BootstrapYearCalendar
+class ActiveCalendar extends Calendar
 {
     /**
      * @var DataProviderInterface the data provider for the view. This property
@@ -66,7 +66,7 @@ class DataSourceCalendar extends BootstrapYearCalendar
         $this->clientOptions['dataSource'] = $rows;
     }
 
-    public function prepareItem(DataSourceItem $model, $key, $index)
+    public function prepareItem(DataItem $model, $key, $index)
     {
         if ($this->prepareItem !== null) {
             return call_user_func(

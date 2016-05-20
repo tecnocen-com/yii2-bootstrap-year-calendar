@@ -7,7 +7,7 @@ use yii\web\AssetBundle;
 /**
  * @author Angel Guevara <angeldelcaos@gmail.com>
  */
-class BootstrapYearCalendarLanguage extends AssetBundle
+class Language extends AssetBundle
 {
     /**
      * @inheritdoc
@@ -29,7 +29,7 @@ class BootstrapYearCalendarLanguage extends AssetBundle
      * @inheritdoc
      */
 
-    public $depends = ['tecnocen\yearcalendar\assets\BootstrapYearCalendar'];
+    public $depends = ['tecnocen\yearcalendar\assets\Calendar'];
 
     /**
      * @inheritdoc
