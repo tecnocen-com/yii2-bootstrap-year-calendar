@@ -11,7 +11,7 @@ use yii\web\JsExpression;
  *
  * @author Angel (Faryshta) Guevara <aguevara@tecnocen.com>
  */
-interface DataSourceItem extends \yii\base\Arrayable
+interface DataItem extends \yii\base\Arrayable
 {
     /**
      * Gets the `name` property of the `dataSource` item.

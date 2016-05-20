@@ -4,8 +4,8 @@ namespace tecnocen\yearcalendar\tests\data;
 
 use yii\web\JsExpression;
 
-class DataSourceItem extends \yii\base\Model
-    implements \tecnocen\yearcalendar\data\DataSourceItem
+class DataItem extends \yii\base\Model
+    implements \tecnocen\yearcalendar\data\DataItem
 {
     private $name;
     private $startDate;

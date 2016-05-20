@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 /**
  * @author Angel Guevara <angeldelcaos@gmail.com>
  */
-class BootstrapYearCalendar extends AssetBundle
+class Calendar extends AssetBundle
 {
     /**
      * @inheritdoc
