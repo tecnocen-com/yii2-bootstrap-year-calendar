@@ -129,7 +129,7 @@ echo Calendar::widget([
 Will add the JS File `bootstrap-year-calendar.es.js` to the view and run
 
 ```js
-jQuery(\'#es-calendar\').calendar({"language":"es"});
+jQuery('#es-calendar').calendar({"language":"es"});
 ```
 
 On the browser.
