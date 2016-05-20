@@ -14,7 +14,7 @@ class DataSourceCalendar extends BootstrapYearCalendar
     public $dataProvider;
 
     /**
-     * @var callable replaces the functionality of `prepareModel()` method.
+     * @var callable replaces the functionality of `prepareItem()` method.
      * the signature must be
      * ```php
      * function (DataSourceItem $model, $key, $inde, $widget)
@@ -25,7 +25,7 @@ class DataSourceCalendar extends BootstrapYearCalendar
      * - `$index`: the zero-based index of the data model in the model array returned by [[dataProvider]]
      * - `$widget`: the DataSourceCalendar object
      */
-    public $prepareModel;
+    public $prepareItem;
 
     /**
      * @inheritdoc
@@ -60,17 +60,17 @@ class DataSourceCalendar extends BootstrapYearCalendar
         foreach ($models as $index => $model) {
             $key = $keys[$index];
 
-            $rows[$key] = $this->prepareModel($model, $key, $index);
+            $rows[$key] = $this->prepareItem($model, $key, $index);
         }
 
         $this->clientOptions['dataSource'] = $rows;
     }
 
-    public function prepareModel(DataSourceItem $model, $key, $index)
+    public function prepareItem(DataSourceItem $model, $key, $index)
     {
-        if ($this->prepareModel !== null) {
+        if ($this->prepareItem !== null) {
             return call_user_func(
-                $this->prepareModel,
+                $this->prepareItem,
                 $model,
                 $key,
                 $index,
@@ -78,10 +78,10 @@ class DataSourceCalendar extends BootstrapYearCalendar
             );
         }
 
-        $dataSource = $model->toArray();
-        $dataSource['name'] = $model->getName();
-        $dataSource['startDate'] = $model->getStartDate();
-        $dataSource['endDate'] = $model->getEndDate();
-        return $dataSource;
+        $item = $model->toArray();
+        $item['name'] = $model->getName();
+        $item['startDate'] = $model->getStartDate();
+        $item['endDate'] = $model->getEndDate();
+        return $item;
     }
 }
