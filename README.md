@@ -51,16 +51,20 @@ echo Calendar::widget([
 
 ### ActiveCalendar
 
-The data source calendar uses a [dataProvider](http://www.yiiframework.com/doc-2.0/yii-data-dataproviderinterface.html) to load the `dataSource` property passed to the calendar.
+The `ActiveCalendar` widget uses a [dataProvider]
+(http://www.yiiframework.com/doc-2.0/yii-data-dataproviderinterface.html)
+to load the `dataSource` property passed to the calendar plugin.
 
 The models returned by the dataProvider must implement the `tecnocen\yearcalendar\data\DataItem` interface.
+
+### DataItem interface.
 
 ```php
 namespace api\models;
 
 use tecnocen\yearcalendar\data\DataItem;
+use tecnocen\yearcalendar\data\JsExpressionHelper;
 use yii\db\ActiveRecord;
-use yii\web\JsExpression;
 
 class Conference extends ActiveRecord implements DataItem
 {
@@ -71,22 +75,52 @@ class Conference extends ActiveRecord implements DataItem
 
     public function getStartDate()
     {
-        return new JsExpression("new Date('{$this->start_date}')");
+        return JsExpressionHelper::parse($this->start_date);
     }
 
     public function getEndDate()
     {
-        return new JsExpression("new Date('{$this->end_date}')");
+        return JsExpressionHelper::parse($this->end_date);
     }
 
     // rest of the active record code.
 }
 ```
 
-Once we have the model we can create the dataProvider.
+#### JsExpressionHelper
+
+The `DataItem::getStartDate()` and `DataItem::getEndDate()` methods must return an instance of `yii\web\JsExpression` containing a javascript [Date](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date) object with only the year, month and day. Its adviced to create the JS object as follows
+
+```js
+new Date(year, month, day);
+```
+
+The `JsExpressionHelper` simplifies this task by providing an static method `JsExpressionHelper::parse()` which can be used in the following manners.
 
 ```php
-use api\models\Conference;
+
+// $dateTime is an object of the class DateTime
+// see http://php.net/manual/en/class.datetime.php
+JsExpressionHelper::parse($dateTime);
+
+// $timestamp is an integer which will be used as
+// unix time tamp
+JsExpressionHelper::parse($timestamp);
+
+// $date is an string here it can accept a second
+// parameter $format which by default is 'Y-m-d'
+// see http://php.net/manual/es/datetime.createfromformat.php
+JsExpressionHelper::parse($date, $format);
+```
+
+All of them will return an object as expected for the calendar js plugin.
+
+#### The Widget
+
+Once we have the model we can create the dataProvider and pass is to the `ActiveCalendar` widget.
+
+```php
+use api\models\Conferehttp://php.net/manual/es/datetime.createfromformat.phpnce;
 use tecnocen\yearcalendar\widgets\ActiveCalendar;
 use yii\data\ActiveDataProvider;
 
