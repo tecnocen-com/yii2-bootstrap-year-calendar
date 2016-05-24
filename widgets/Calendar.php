@@ -13,7 +13,8 @@ use yii\helpers\ArrayHelper;
 class Calendar extends \yii\bootstrap\Widget
 {
     /**
-     * @var string the locale ID (e.g. 'fr', 'de', 'en-GB') for the language to * be used by the date picker. If this property is empty, then the current
+     * @var string the locale ID (e.g. 'fr', 'de', 'en-GB') for the language to
+     * be used by the date picker. If this property is empty, then the current
      * application language will be used.
      */
     public $language;
