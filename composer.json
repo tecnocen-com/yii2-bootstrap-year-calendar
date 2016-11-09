@@ -21,7 +21,7 @@
         }
     ],
     "require": {
-        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-bootstrap": "~2.0.0 || ~2.1.0",
         "bower-asset/bootstrap-year-calendar": "~1.1"
     },
     "autoload": {
