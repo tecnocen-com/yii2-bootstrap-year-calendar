@@ -30,8 +30,7 @@ to the `require` section of your `composer.json` file.
 This is the basic widget which encapsulates the plugin into a `yii\bootstrap\Widget` implementation.
 
 ```php
-
-use tecnocen\yearcalendar\Calendar;
+use tecnocen\yearcalendar\widgets\Calendar;
 
 echo Calendar::widget([
     // 'language' => 'es',
@@ -121,7 +120,7 @@ All of them will return an object as expected for the calendar js plugin.
 Once we have the model we can create the dataProvider and pass is to the `ActiveCalendar` widget.
 
 ```php
-use api\models\Conferehttp://php.net/manual/es/datetime.createfromformat.phpnce;
+use api\models\Conference;
 use tecnocen\yearcalendar\widgets\ActiveCalendar;
 use yii\data\ActiveDataProvider;
 
@@ -169,7 +168,7 @@ jQuery('#es-calendar').calendar({"language":"es"});
 
 On the browser.
 
-## Documentation
+## Class Documentation
 
 TODO
 
